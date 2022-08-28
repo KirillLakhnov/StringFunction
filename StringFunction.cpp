@@ -3,15 +3,14 @@
 int PUTS (const char* str)
 {
     assert (str);
-
+    
     int i = 0;
-    while (str[i] != '\0')
+    while (str[++i - 1] != '\0')
     {
-        putchar (str[i]);
-        i++;
+        putchar (str[i-1]);
     }
-    printf ("\n");
-
+    putchar ('\n');
+    
     return 0;
 }
 
@@ -105,7 +104,6 @@ char* STRNCAT (char* string_destination, const char* string_source, const size_t
     do
     {
         string_destination[i + length_destination] = string_source[i];
-
     } 
     while (string_source[++i - 1] != '\0' && (i - 1) < (n - 1));
     
@@ -151,7 +149,7 @@ char* STRDUP (const char* str)
     return str_duplicate; 
 }
 
-ssize_t GETLINE ()
+ssize_t GETLINE (char** lineptr, size_t* n, FILE* input_stream)
 {
 
 }
