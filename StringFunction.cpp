@@ -2,22 +2,22 @@
 
 int PUTS (const char* str)
 {
-    assert(str);
+    assert (str);
 
     int i = 0;
     while (str[i] != '\0')
     {
-        putchar(str[i]);
+        putchar (str[i]);
         i++;
     }
-    printf("\n");
+    printf ("\n");
 
     return 0;
 }
 
 char* STRCHR (char *str, const char ch)
 {
-    assert(str);
+    assert (str);
 
     int i = 0;
 
@@ -36,7 +36,7 @@ char* STRCHR (char *str, const char ch)
 
 int STRLEN (const char *str)
 {
-    assert(str);
+    assert (str);
 
     int lenght_string = 0;
     while (str[lenght_string] != '\0')
@@ -49,8 +49,8 @@ int STRLEN (const char *str)
 
 char* STRCPY (char* string_destination, const char* string_source)
 {
-    assert(string_destination);
-    assert(string_source);
+    assert (string_destination);
+    assert (string_source);
 
     int i = 0;
     do
@@ -65,8 +65,8 @@ char* STRCPY (char* string_destination, const char* string_source)
 
 char* STRNCPY (char* string_destination, const char* string_source, const size_t n)
 {
-    assert(string_destination);
-    assert(string_source);
+    assert (string_destination);
+    assert (string_source);
 
     int i = 0;
     do
@@ -80,8 +80,8 @@ char* STRNCPY (char* string_destination, const char* string_source, const size_t
 
 char* STRCAT (char* string_destination, const char* string_source)
 {
-    assert(string_destination);
-    assert(string_source);
+    assert (string_destination);
+    assert (string_source);
 
     int length_destination = STRLEN (string_destination);
     int i = 0;
@@ -97,8 +97,8 @@ char* STRCAT (char* string_destination, const char* string_source)
 
 char* STRNCAT (char* string_destination, const char* string_source, const size_t n)
 {
-    assert(string_destination);
-    assert(string_source);  
+    assert (string_destination);
+    assert (string_source);  
     
     int length_destination = STRLEN (string_destination);
     int i = 0;
@@ -119,26 +119,24 @@ int STRCMP (const char* str1, const char* str2)
     
     int i = 0;
     while (str1[++i - 1] == str2[i - 1] && (str1[i - 1] && str2[i - 1]) != '\0') ;
-    
+
     return str1[i - 1] - str2[i - 1];
 }
 
 
 char* FGETS (char* str, int n, FILE* input_stream)
 {
-    if (str == nullptr)
-    {
-        return nullptr;
-    }
-    for (int i = 0; i < n && )
-    {
-        ;
-    }
+    assert (str);
+    assert (input_stream);
+
+    fscanf (input_stream, "%s", str);
+
+    return str;
 }
 
 char* STRDUP (const char* str)
 {
-    assert(str);
+    assert (str);
 
     size_t str_length = (size_t) STRLEN(str);
     char* str_duplicate = (char*) calloc (str_length + 1, 1);
