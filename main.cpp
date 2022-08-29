@@ -1,14 +1,15 @@
 #include "StringFunction.h"
-#include <string.h>
+#include "tests.h"
 
 int main ()
 {
-    char s[50] = "eeee";
-    char c[50] = "qqqqq";
-    
-    STRCPY (s,c); 
+    //testSTRCHR  ();
+    //testSTRLEN  ();
+    //testSTRCPY  ();
+    //testSTRNCPY ();
+    //testSTRCAT  (); 
+    //testSTRNCAT ();
+    //testSTRCMP  ();
 
-    printf("%s", s);
-    
     return 0;
 }
