@@ -2,9 +2,9 @@
 
 void testSTRCHR ()
 {
-    struct TEST_STRCHR test_strchr[] = { {strdup("abcdefghigklmnopqrstuvwxyz"), 'p'},
-                                         {strdup("qwerty"),                     'u'},
-                                         {strdup("1234567"),                    '6'},
+    struct TEST_STRCHR test_strchr[] = { {"abcdefghigklmnopqrstuvwxyz", 'p'},
+                                         {"qwerty",                     'u'},
+                                         {"1234567",                    '6'},
                                        };
     
     printf("my_strchr function test\n");
@@ -19,18 +19,15 @@ void testSTRCHR ()
         {
             printf ("Test %d failed.\n", i);
         }
-    }
-    for (int i = 0; i < sizeof (test_strchr) / sizeof (test_strchr[0]); i++)
-    {
-         free (test_strchr[i].str);
+
     }
 }
 
 void testSTRLEN ()
 {
-    struct TEST_STRLEN test_strlen[] = { {strdup("12345678")   },
-                                         {strdup("sdDBHXKJDS") },
-                                         {strdup("ghjehdkrrd") },
+    struct TEST_STRLEN test_strlen[] = { {"12345678"  },
+                                         {"sdDBHXKJDS"},
+                                         {"ghjehdkrrd"},
                                        };
 
     printf("my_strlen function test\n");
@@ -47,23 +44,19 @@ void testSTRLEN ()
         }
     }
 
-    for (int i = 0; i < sizeof (test_strlen) / sizeof (test_strlen[0]); i++)
-    {
-         free (test_strlen[i].str);
-    }
 }
 
 void testSTRCPY ()
 {
-    struct TEST_STR_CPY_CAT test_strcpy[] = { {strdup("13454342"), strdup("837ey839092")},
-                                              {strdup("12345678"), strdup("qwertyuio")  },
+    struct TEST_STR_CPY_CAT test_strcpy[] = { {"13454342", "837ey839092"},
+                                              {"12345678", "qwertyuio"  },
                                             };
     
     printf("my_strcpy function test\n");
 
     for (int i = 0; i < sizeof (test_strcpy) / sizeof (test_strcpy[0]); i++)
     {
-        char* string_destination;
+        char string_destination[STR_MAX] = "";
 
         strcpy (string_destination, test_strcpy[i].string_source);
         my_strcpy (test_strcpy[i].string_destination, test_strcpy[i].string_source);
@@ -77,26 +70,19 @@ void testSTRCPY ()
             printf ("Test %d failed.\n", i);
         } 
     }
-
-    for (int i = 0; i < sizeof (test_strcpy) / sizeof (test_strcpy[0]); i++)
-    {
-        free (test_strcpy[i].string_source);
-        free (test_strcpy[i].string_destination);
-    }
-
 }
 
 void testSTRNCPY ()
 {
-    struct TEST_STRN_CPY_CAT test_strncpy[] = { {strdup("13454342"), strdup("837ey839092"), 6},
-                                                {strdup("12345678"), strdup("qwertyuio"),   8},
+    struct TEST_STRN_CPY_CAT test_strncpy[] = { {"13454342", "837ey839092", 6},
+                                                {"12345678", "qwertyuio",   8},
                                                };
 
     printf("my_strncpy function test\n");
 
     for (int i = 0; i < sizeof (test_strncpy) / sizeof (test_strncpy[0]); i++)
     {
-        char string_destination[strlen(test_strncpy[i].string_destination)+1];
+        char string_destination[STR_MAX] = "";
 
         strcpy (string_destination, test_strncpy[i].string_destination);
 
@@ -111,29 +97,20 @@ void testSTRNCPY ()
         {
             printf ("Test %d failed.\n", i);
         } 
-
-        free (&test_strncpy[i].string_destination);
-        free (&test_strncpy[i].string_source);
-    }
-    
-    for (int i = 0; i < sizeof (test_strncpy) / sizeof (test_strncpy[0]); i++)
-    {
-        free (test_strncpy[i].string_source);
-        free (test_strncpy[i].string_destination);
     }
 } 
 
 void testSTRCAT ()
 {
-    struct TEST_STR_CPY_CAT test_strcat[] = { {strdup("134548634"),     strdup("837ey8egdjh")},
-                                              {strdup("13abcdefghkl2"), strdup("1234567")    },
+    struct TEST_STR_CPY_CAT test_strcat[] = { {"134548634",     "837ey8egdjh"},
+                                              {"13abcdefghkl2", "1234567"    },
                                             };
     
     printf("my_strcat function test\n");
 
     for (int i = 0; i < sizeof (test_strcat) / sizeof (test_strcat[0]); i++)
     {
-        char string_destination[strlen(test_strcat[i].string_destination)+1];
+        char string_destination[STR_MAX] = "";
 
         strcpy (string_destination, test_strcat[i].string_destination);
 
@@ -148,23 +125,20 @@ void testSTRCAT ()
         {
             printf ("Test %d failed.\n", i);
         }
-
-        free (&test_strcat[i].string_destination);
-        free (&test_strcat[i].string_source);
     }
 }
 
 void testSTRNCAT ()
 {
-    struct TEST_STRN_CPY_CAT test_strncat[] = { {strdup("134548634"),    strdup("837ey8egdjh"),  6},
-                                                {strdup("13abcdefghkl2"), strdup("1234567"),     8},
+    struct TEST_STRN_CPY_CAT test_strncat[] = { {"134548634",    "837ey8egdjh",  6},
+                                                {"13abcdefghkl2", "1234567",     8},
                                               };
 
     printf("my_strncat function test\n");
 
     for (int i = 0; i < sizeof (test_strncat) / sizeof (test_strncat[0]); i++)
     {
-        char string_destination [strlen(test_strncat[i].string_destination)+1];
+        char string_destination[STR_MAX] = "";
 
         strcpy (string_destination, test_strncat[i].string_destination);
 
@@ -179,17 +153,14 @@ void testSTRNCAT ()
         {
             printf ("Test %d failed.\n", i);
         }
-
-        free (&test_strncat[i].string_destination);
-        free (&test_strncat[i].string_source);
     }
 }
 
 void testSTRCMP ()
 {
-    struct TEST_STRCMP test_strcmp[] = { {strdup("123456"), strdup("123456") },
-                                         {strdup("5890"),   strdup("6890")   },
-                                         {strdup("qwerty"), strdup("qwertyu")},
+    struct TEST_STRCMP test_strcmp[] = { {"123456", "123456" },
+                                         {"5890",   "6890"   },
+                                         {"qwerty", "qwertyu"},
                                         };
 
      printf("my_strcmp function test\n");

@@ -131,8 +131,9 @@ char* my_fgets (char* str, int n, FILE* input_stream)
     
     int i = 0;
     char c = 0;
-    while ((c = getc(input_stream)) != '\n' && c != EOF && i++ < n)
+    while ((c = getc(input_stream)) != '\n' && c != EOF && i < n)
     {
+        i++;
         putchar(c);
     }
     

@@ -81,6 +81,4 @@ char* my_fgets (char* str, int n, FILE* input_stream);
  */
 char* my_strdup (const char* str);
 
-
-
 #endif // STRING_FUNCTION_H
