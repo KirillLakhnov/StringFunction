@@ -17,10 +17,13 @@ void testSTRCHR ()
         }
         else
         {
-            printf ("Test %d failed.\n", i);
+            printf ("Test %d failed. "
+                    "The result of the function should have been %c, but it turned out %s", i, test_strchr[i].ch, my_strchr (test_strchr[i].str, test_strchr[i].ch));
         }
 
     }
+
+    printf("\n");
 }
 
 void testSTRLEN ()
@@ -40,10 +43,12 @@ void testSTRLEN ()
         }
         else
         {
-            printf ("Test %d failed.\n", i);
+            printf ("Test %d failed. "
+                    "The result of the function should have been %lu, but it turned out %d\n", i, strlen (test_strlen[i].str), my_strlen (test_strlen[i].str));
         }
     }
 
+    printf("\n");
 }
 
 void testSTRCPY ()
@@ -67,9 +72,12 @@ void testSTRCPY ()
         }
         else
         {
-            printf ("Test %d failed.\n", i);
+            printf ("Test %d failed. "
+                    "The result of the function should have been %s, but it turned out %s\n", i, strcpy (string_destination, test_strcpy[i].string_source), my_strcpy (test_strcpy[i].string_destination, test_strcpy[i].string_source));
         } 
     }
+
+    printf("\n");
 }
 
 void testSTRNCPY ()
@@ -95,9 +103,12 @@ void testSTRNCPY ()
         }
         else
         {
-            printf ("Test %d failed.\n", i);
+            printf ("Test %d failed. "
+                    "The result of the function should have been %s, but it turned out %s\n", i, strncpy (string_destination, test_strncpy[i].string_source, test_strncpy[i].n), my_strncpy (test_strncpy[i].string_destination, test_strncpy[i].string_source, test_strncpy[i].n));
         } 
     }
+
+    printf("\n");
 } 
 
 void testSTRCAT ()
@@ -123,9 +134,12 @@ void testSTRCAT ()
         }
         else
         {
-            printf ("Test %d failed.\n", i);
+            printf ("Test %d failed. "
+                    "The result of the function should have been %s, but it turned out %s\n", i, strcat (string_destination, test_strcat[i].string_source), my_strcat (test_strcat[i].string_destination, test_strcat[i].string_source));
         }
     }
+
+    printf("\n");
 }
 
 void testSTRNCAT ()
@@ -142,8 +156,8 @@ void testSTRNCAT ()
 
         strcpy (string_destination, test_strncat[i].string_destination);
 
-        strcat (string_destination, test_strncat[i].string_source /*,test_strncat[i].n*/ );
-        my_strcat (test_strncat[i].string_destination, test_strncat[i].string_source /*,test_strncat[i].n*/ );
+        strncat (string_destination, test_strncat[i].string_source, test_strncat[i].n );
+        my_strncat (test_strncat[i].string_destination, test_strncat[i].string_source, test_strncat[i].n );
 
         if (strcmp (test_strncat[i].string_destination, string_destination) == 0)
         {
@@ -151,9 +165,12 @@ void testSTRNCAT ()
         }
         else
         {
-            printf ("Test %d failed.\n", i);
+            printf ("Test %d failed. "
+                    "The result of the function should have been %s, but it turned out %s\n", i, strncat (string_destination, test_strncat[i].string_source, test_strncat[i].n ), my_strncat (test_strncat[i].string_destination, test_strncat[i].string_source, test_strncat[i].n ));
         }
     }
+
+    printf("\n");
 }
 
 void testSTRCMP ()
@@ -173,7 +190,10 @@ void testSTRCMP ()
         }
         else
         {
-            printf ("Test %d failed.\n", i);
+            printf ("Test %d failed. "
+                    "The result of the function should have been %d, but it turned out %d", i, strcmp(test_strcmp[i].str1, test_strcmp[i].str2), my_strcmp (test_strcmp[i].str1, test_strcmp[i].str2));
         }
     }
+
+    printf("\n");
 }
