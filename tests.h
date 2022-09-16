@@ -11,7 +11,7 @@ const int STR_MAX = 50;
 struct TEST_STRCHR 
 {
     char str[STR_MAX];
-    char  ch;
+    char ch;
 };
 
 struct TEST_STRLEN

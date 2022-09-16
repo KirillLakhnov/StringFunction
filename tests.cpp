@@ -18,9 +18,8 @@ void testSTRCHR ()
         else
         {
             printf ("Test %d failed. "
-                    "The result of the function should have been %c, but it turned out %s", i, test_strchr[i].ch, my_strchr (test_strchr[i].str, test_strchr[i].ch));
+                    "The result of the function should have been %c, but it turned out \"%s\"\n", i, test_strchr[i].ch, my_strchr (test_strchr[i].str, test_strchr[i].ch));
         }
-
     }
 
     printf("\n");
@@ -191,7 +190,7 @@ void testSTRCMP ()
         else
         {
             printf ("Test %d failed. "
-                    "The result of the function should have been %d, but it turned out %d", i, strcmp(test_strcmp[i].str1, test_strcmp[i].str2), my_strcmp (test_strcmp[i].str1, test_strcmp[i].str2));
+                    "The result of the function should have been %d, but it turned out %d\n", i, strcmp(test_strcmp[i].str1, test_strcmp[i].str2), my_strcmp (test_strcmp[i].str1, test_strcmp[i].str2));
         }
     }
 

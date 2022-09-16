@@ -145,7 +145,7 @@ char* my_strdup (const char* str)
     assert (str);
 
     size_t str_length = (size_t) my_strlen (str);
-    char* str_duplicate = (char*) calloc (str_length + 1, 1);
+    char* str_duplicate = (char*) calloc (str_length + 1, sizeof(char));
 
     return my_strcpy (str_duplicate, str);
 }
